@@ -22,15 +22,15 @@ namespace Task04
 
             for (int i = 0; i < N; i++)
             {
-                Console.Write("{0}\t", SizeStepArray[i]);
+                Console.Write(" " + SizeStepArray[i]);
             }
             Console.WriteLine();
 
-            SortArray1(SizeStepArray);
+            Bubble(SizeStepArray);
 
             for (int i = 0; i < N; i++)
             {
-                Console.Write("{0}\t", SizeStepArray[i]);
+                Console.Write(" " + SizeStepArray[i]);
             }
             Console.WriteLine();
 
@@ -49,21 +49,15 @@ namespace Task04
                     myArr[i][j] = random.Next(0, 100);
                 }
             }
-            Console.Write("{");
-            for (int i = 0; i < myArr.Length; i++)
-            {
-                Console.Write("{");
-                for (int j = 0; j < myArr[i].Length; j++)
-                {
-                    Console.Write(myArr[i][j] + ",");
-                }
-                Console.Write("},");
-            }
-            Console.Write("}.");
 
+
+            viewArray(myArr);
             SortArray(myArr);
+            Console.WriteLine();
+            Console.Write("Сортированный");
+            viewArray(myArr);
         }
-        public static void SortArray1(int[] arr)
+        public static void Bubble(int[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {
@@ -71,24 +65,18 @@ namespace Task04
                 {
                     if (arr[j] > arr[j + 1])
                     {
-                        int tmpParam = arr[j];
+                        int tmp = arr[j];
 
                         arr[j] = arr[j + 1];
 
-                        arr[j + 1] = tmpParam;
+                        arr[j + 1] = tmp;
                     }
                 }
             }
 
         }
-
-        private static void SortArray(int[][] arr)
+        public static void viewArray(int[][] arr)
         {
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Array.Sort(arr[i]);
-            }
-            Console.WriteLine();
             Console.WriteLine();
             Console.Write("{");
             for (int i = 0; i < arr.Length; i++)
@@ -101,15 +89,16 @@ namespace Task04
                 Console.Write("},");
             }
             Console.Write("}.");
-
         }
 
-        private static void SortArrray(int[][] arr)
+
+        public static void SortArray(int[][] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {
                 Array.Sort(arr[i]);
             }
+
         }
 
     }

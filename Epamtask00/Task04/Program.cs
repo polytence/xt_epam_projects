@@ -36,26 +36,26 @@ namespace Task04
 
 
 
-            int[][] myArr = new int[N][];
-            for (int i = 0; i < myArr.Length; i++)
+            int[][] Array = new int[N][];
+            for (int i = 0; i < Array.Length; i++)
             {
-                myArr[i] = new int[SizeStepArray[i]];
+                Array[i] = new int[SizeStepArray[i]];
             }
 
-            for (int i = 0; i < myArr.Length; i++)
+            for (int i = 0; i < Array.Length; i++)
             {
-                for (int j = 0; j < myArr[i].Length; j++)
+                for (int j = 0; j < Array[i].Length; j++)
                 {
-                    myArr[i][j] = random.Next(0, 100);
+                    Array[i][j] = random.Next(0, 100);
                 }
             }
 
-
-            viewArray(myArr);
-            SortArray(myArr);
+            Console.Write("Исходный:");
+            viewArray(Array);
+            SortArray(Array);
             Console.WriteLine();
-            Console.Write("Сортированный");
-            viewArray(myArr);
+            Console.Write("Сортированный:");
+            viewArray(Array);
         }
         public static void Bubble(int[] arr)
         {
@@ -94,13 +94,31 @@ namespace Task04
 
         public static void SortArray(int[][] arr)
         {
+            int n = 0;
+            foreach (int[] array in arr)
+                n += array.Length;
+            int[] tmp = new int[n];
+            n = 0;
             for (int i = 0; i < arr.Length; i++)
             {
-                Array.Sort(arr[i]);
+                for (int j = 0; j < arr[i].Length; j++)
+                {
+                    tmp[n] = arr[i][j];
+                    n++;
+                }
+            }
+            Bubble(tmp);
+            n = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr[i].Length; j++)
+                {
+                    arr[i][j] = tmp[n];
+                    n++;
+                }
             }
 
         }
-
     }
 }
 

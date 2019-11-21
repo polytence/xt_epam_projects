@@ -23,7 +23,7 @@ namespace Task19
         
         public static void ViewArray(int[] arr)
         {
-            Console.WriteLine(); ;
+            Console.WriteLine();
             for (int i = 0; i < arr.Length; i++)
             {
                 Console.Write(arr[i] + ",");

@@ -22,11 +22,18 @@ namespace Task111
                     n++;
                 }
             }
+            Console.Write("Введена строка: ");
             Console.WriteLine(arr);
-            Console.WriteLine("Всего букв:"+ n);
+            Console.WriteLine("Всего букв:" + n);
+            str = new string((from c in str
+                              where char.IsWhiteSpace(c) || char.IsLetterOrDigit(c)
+                              select c).ToArray());
+            Console.WriteLine("Без знаков: "+str);
             string[] words = str.Split();
+
             foreach (var word in words)
             {
+
                 if (!string.IsNullOrEmpty(word)) 
                 {
                     Console.WriteLine($"<{word}>");
@@ -34,7 +41,8 @@ namespace Task111
                 }
             }
             Console.WriteLine("Всего слов:" + i);
-            Console.WriteLine(n/i);
+            Console.WriteLine(n / i);
+                           
         }
     }
 }

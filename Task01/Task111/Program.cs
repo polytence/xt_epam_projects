@@ -10,6 +10,7 @@ namespace Task111
     {
         static void Main(string[] args)
         {
+            
             int i = 0;
             int n = 0;
             string str = Console.ReadLine();
@@ -22,7 +23,17 @@ namespace Task111
                     n++;
                 }
             }
-            Console.Write("Введена строка: ");
+            int k = 0;
+            //Char[] symbol = new char[];
+            for (int j = 0; j < arr.Length; j++) 
+            {
+                if (Char.IsSeparator(arr[j]))
+                {
+                    Console.WriteLine("w:"+ arr[j]);
+                }
+            }
+
+                    Console.Write("Введена строка: ");
             Console.WriteLine(arr);
             Console.WriteLine("Всего букв:" + n);
             str = new string((from c in str

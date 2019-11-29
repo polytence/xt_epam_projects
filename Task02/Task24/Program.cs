@@ -12,7 +12,7 @@ namespace Task24
         static void Main(string[] args)
         {
             MyString string1 = new MyString(new char[] { 'I', 'l', 'o', 'v', 'e' });
-            MyString string2 = new MyString(new char[] { 'C', 'o', 'o', 'k', 'e', 's'});
+            MyString string2 = new MyString(new char[] { 'C', 'o', 'o', 'k', 'e', 's' });
         }
     }
 }

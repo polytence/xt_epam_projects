@@ -8,6 +8,7 @@ namespace Task24
 {
     public class MyString
     {
-        private char[] myStr;
+        private char[] Str;
+
     }
 }

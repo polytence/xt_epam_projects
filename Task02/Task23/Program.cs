@@ -16,20 +16,17 @@ namespace Task23
         }
         class User
         {
-            public string UserFirstName;
-            public string UserSecondName;
-            public string UserPatronymic;
-            public DateTime UserBirthday;
-             public int Age()
+            public string FirstName { get; set; }
+            public string SecondName { get; set; }
+            public string Patronymic { get; set; }
+            public DateTime Birthday { get; set; }
+
+            public int Age()
             {
-                int CalculationAge = DateTime.Now.Year - UserBirthday.Year;
+                int CalculationAge = DateTime.Now.Year - Birthday.Year;
                 return CalculationAge;
             }
-            public string FirstName { get { return UserFirstName; } set { UserFirstName = value; } }
-            public string SecondName { get { return UserSecondName; } set { UserSecondName = value; } }
-            public string Patronymic { get { return UserPatronymic; } set { UserPatronymic = value; } }
             public int UserAge { get { return Age(); } }
-            public DateTime Birthday { get { return UserBirthday; } set { UserBirthday = value; } }
             void NewUser(string UserFirstName, string UserSecondName, string UserPatronymic, DateTime UserBirthday)
             {
                 FirstName = UserFirstName;

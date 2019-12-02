@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task2._8
 {
-    public class Bonus : IPickupable
+    class Class1
     {
-        public Bonus(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
     }
 }

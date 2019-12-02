@@ -24,15 +24,17 @@ namespace Task27
                     Console.WriteLine(a.RectangleSquard());
                     Console.WriteLine("x= "+ x +" y = "+y);
                     break;
-                //case 2:
-                //    Line b = new Line(x, y)
-                //    Console.WriteLine("Case 1");
-                //    Console.WriteLine("x= "+ x + " y = " + y);
-                //    break;
+                case 2:
+                    Line b = new Line(x, y);
+                    Console.WriteLine("Тип" + b.GetType());
+                    Console.WriteLine("Case 1");
+                    Console.WriteLine("x= " + x + " y = " + y);
+                    break;
                 case 3:
                     Console.WriteLine("Введите радиус");
                     int radius = int.Parse(Console.ReadLine());
                     Circle c = new Circle(radius);
+                    Console.WriteLine("Тип" + c.GetType());
                     Console.WriteLine("Case 1");
                     Console.WriteLine("x= "+ x + " y = " + y);
                     break;
@@ -40,6 +42,7 @@ namespace Task27
                     Console.WriteLine("Введите радиус");
                     int radius1 = int.Parse(Console.ReadLine());
                     Round d = new Round(x, y, radius1);
+                    Console.WriteLine("Тип" + d.GetType());
                     Console.WriteLine("Case 1");
                     break;
                 case 5:
@@ -48,6 +51,7 @@ namespace Task27
                     Console.WriteLine("Введите внешний радиус");
                     int radiusOut = int.Parse(Console.ReadLine());
                     Ring f = new Ring(x, y, radiusIn, radiusOut);
+                    Console.WriteLine("Тип" + f.GetType());
                     Console.WriteLine("Case 1");
                     break;
             }

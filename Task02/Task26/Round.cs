@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Task26
 {
-    
     class Round
     { 
         public int x;

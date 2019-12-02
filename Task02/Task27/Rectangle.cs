@@ -8,10 +8,17 @@ namespace Task27
 {
     class Rectangle
     {
-    public int rectangle (int x, int y)
-        {
-            return x * y;
-        }
+        private int x;
+        private int y;
 
+        public Rectangle(int X, int Y)
+        {
+            x = X;
+            y = Y;
+        }
+        public double RectangleSquard()
+        {
+              return x * y;  
+        }
     }
 }

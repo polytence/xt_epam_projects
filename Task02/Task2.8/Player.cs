@@ -8,17 +8,13 @@ namespace Task2._8
 {
     class Player : IMoveable
     {
-        public void Move()
-        {
+        public int Health { get; }
+        public int Mana { get; }
 
-        }
-        public void Attack()
+        public Player()
         {
-
-        }
-        public void PickUpBonus()
-        {
-
+            Health = 100;
+            Mana = 100;
         }
 
     }

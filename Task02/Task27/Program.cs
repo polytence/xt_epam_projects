@@ -20,15 +20,15 @@ namespace Task27
             {
                 case 1:
                     Rectangle a = new Rectangle(x, y);
-                    Console.WriteLine("Тип" + Rectangle.GetType());
+                    Console.WriteLine("Тип" + a.GetType());
                     Console.WriteLine(a.RectangleSquard());
                     Console.WriteLine("x= "+ x +" y = "+y);
                     break;
-                case 2:
-                    Line b = new Line(x, y)
-                    Console.WriteLine("Case 1");
-                    Console.WriteLine("x= "+ x + " y = " + y);
-                    break;
+                //case 2:
+                //    Line b = new Line(x, y)
+                //    Console.WriteLine("Case 1");
+                //    Console.WriteLine("x= "+ x + " y = " + y);
+                //    break;
                 case 3:
                     Console.WriteLine("Введите радиус");
                     int radius = int.Parse(Console.ReadLine());

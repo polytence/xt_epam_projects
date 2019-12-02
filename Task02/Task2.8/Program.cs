@@ -8,8 +8,19 @@ namespace Task2._8
 {
     class Program
     {
-        static void Main(string[] args)
+        class Game
         {
+            public Field Field { get; }
+            public Player Player { get; }
+            public Object Object { get; }
+            public Monster Monster { get; }
+
+
+            public Game(Field field, Player player)
+            {
+                Field = field;
+                Player = player;
+            }
 
         }
     }

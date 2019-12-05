@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{97D1FFD0-65E2-4C39-A416-55E420B17A95}</ProjectGuid>
+    <ProjectGuid>{BF92354C-CF25-4721-AECE-B1A52213313F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Task27</RootNamespace>
-    <AssemblyName>Task27</AssemblyName>
+    <RootNamespace>Task3._1</RootNamespace>
+    <AssemblyName>Task3.1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,11 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Circle.cs" />
-    <Compile Include="Line.cs" />
-    <Compile Include="Rectangle.cs" />
-    <Compile Include="Round.cs" />
-    <Compile Include="Ring.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

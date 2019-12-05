@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Task2._8
 {
-    public class Wolf
+    public class Wolf : Monster
     {
-        Console.Write("woof");
+        public int Health { get; }
     }
 }

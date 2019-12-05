@@ -46,6 +46,12 @@
     <Compile Include="Bonus.cs" />
     <Compile Include="Apple.cs" />
     <Compile Include="Cherry.cs" />
+    <Compile Include="Rock.cs" />
+    <Compile Include="IMoveable.cs" />
+    <Compile Include="Monster.cs" />
+    <Compile Include="Object.cs" />
+    <Compile Include="Field.cs" />
+    <Compile Include="IPickupable.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Wolf.cs" />
     <Compile Include="Program.cs" />

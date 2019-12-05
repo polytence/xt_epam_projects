@@ -8,6 +8,8 @@ namespace Task2._8
 {
     public class Bonus : IPickupable
     {
+        public int x;
+        public int y;
         public Bonus(int x, int y)
         {
             this.x = x;

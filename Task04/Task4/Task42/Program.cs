@@ -6,54 +6,68 @@ using System.Threading.Tasks;
 
 namespace Task42
 {
-    class Program
+    public class Program
     {
-
         static void Main(string[] args)
         {
-            int[] array = new int[] { 6, 1, 8, 7, 50, 10 };
-            QuickSort.BubbleSort<int>(array, Swap, Compare);
-            foreach (var item in array)
-            {
-                Console.WriteLine(item);
-            }
+            List<string> array = new List<string> { "aaa", "xxx", "yy", "zzz", "cxc", "ccx", "absb", "asdhajksnd", "utuerui" };
+            array.Sort(Compare);
+            OrderBy(array);
+            foreach (string s in array)
+                Console.WriteLine("{0} ", s);
         }
-
-        static void Swap(ref int x, ref int y)
+        private static int Compare(string x, string y)
         {
-            var temp = x;
-            x = y;
-            y = temp;
-        } 
-        static bool Compare(int a, int b)
-        {
-            if (a > b)
-                return true;
-            else if (a < b)
-                return false;
-            else
-                return false;
-        }
-    }
-    public delegate void Swap<T>(ref T x, ref T y);
-    public delegate bool Compare<T>(T x, T y);
-    //сортировка пузырьком
-    public static class QuickSort
-    {
-        public static void BubbleSort<T>(T[] array, Swap<T> swap, Compare<T> compare)
-        {
-            var len = array.Length;
-            for (var i = 1; i < len; i++)
+            if (x == null)
             {
-                for (var j = 0; j < len - i; j++)
+                if (y == null)
                 {
-                    if (compare.Invoke(array[j], array[j + 1]))
+                    return 0;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            else
+            {
+                if (y == null)
+
+                {
+                    return 1;
+                }
+                else
+                {
+                    int i = x.Length.CompareTo(y.Length);
+
+                    if (i != 0)
                     {
-                        swap.Invoke(ref array[j], ref array[j + 1]);
+
+                        return i;
+                    }
+                    else
+                    {
+
+                        return x.CompareTo(y);
                     }
                 }
             }
         }
-
+            static void OrderBy(List<string> array)
+        {
+            bool flag = true;
+            while (flag)
+            {
+                flag = false;
+                for (int i = 0; i < array.Count - 1; ++i)
+                    if (array[i].CompareTo(array[i + 1]) > 0)
+                    {
+                        string temp = array[i];
+                        array[i] = array[i + 1];
+                        array[i + 1] = temp;
+                        flag = true;
+                    }
+            }
+        }
     }
 }

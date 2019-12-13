@@ -12,7 +12,7 @@ namespace Task41
         static void Main(string[] args)
         {
             int[] array = new int[] { 5, 10, 2, 33, 90, 6 };
-            QuickSort.BubbleSort<int>(array, Swap, Compare);
+            Sort.BubbleSort<int>(array, Swap, Compare);
             foreach (var item in array)
             {
                 Console.WriteLine(item);
@@ -37,8 +37,7 @@ namespace Task41
     }
     public delegate void Swap<T>(ref T x, ref T y);
     public delegate bool Compare<T>(T x, T y);
-    //сортировка пузырьком
-    public static class QuickSort
+    public static class Sort
     {
         public static void BubbleSort<T>(T[] array, Swap<T> swap, Compare<T> compare)
         {

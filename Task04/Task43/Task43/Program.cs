@@ -11,29 +11,61 @@ namespace Task43
     {
         static void Main(string[] args)
         {
+            int[] array = new int[] { 5, 10, 2, 33, 90, 6 };
             // создаем новый поток
-            Thread myThread = new Thread(new ThreadStart(Count));
-            myThread.Start(); // запускаем поток
-
-            for (int i = 1; i < 9; i++)
+            new Thread(() =>
             {
-                Console.WriteLine("Главный поток:");
-                Console.WriteLine(i * i);
-                Thread.Sleep(300);
-            }
+                Sort.BubbleSort<int>(array, Swap, Compare);
 
-            Console.ReadLine();
+                foreach (var item in array)
+                {
+                    Console.WriteLine(item);
+                }
+
+            }
+                ).Start();
+            
+            
+            foreach (var item in array)
+            {
+                Console.WriteLine(item);
+            }
         }
 
-        public static void Count()
+        static void Swap(ref int x, ref int y)
         {
-            for (int i = 1; i < 9; i++)
-            {
-                Console.WriteLine("Второй поток:");
-                Console.WriteLine(i * i);
-                Thread.Sleep(400);
-            }
+            var temp = x;
+            x = y;
+            y = temp;
+        }
+        static bool Compare(int a, int b)
+        {
+            if (a > b)
+                return true;
+            else if (a < b)
+                return false;
+            else
+                return false;
         }
     }
+    public delegate void Swap<T>(ref T x, ref T y);
+    public delegate bool Compare<T>(T x, T y);
+    public static class Sort
+    {
+        public static void BubbleSort<T>(T[] array, Swap<T> swap, Compare<T> compare)
+        {
+            var len = array.Length;
+            for (var i = 1; i < len; i++)
+            {
+                for (var j = 0; j < len - i; j++)
+                {
+                    if (compare.Invoke(array[j], array[j + 1]))
+                    {
+                        swap.Invoke(ref array[j], ref array[j + 1]);
+                    }
+                }
+            }
+        }
 
+    }
 }

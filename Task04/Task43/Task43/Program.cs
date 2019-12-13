@@ -12,7 +12,6 @@ namespace Task43
         static void Main(string[] args)
         {
             int[] array = new int[] { 5, 10, 2, 33, 90, 6 };
-            // создаем новый поток
             new Thread(() =>
             {
                 Sort.BubbleSort<int>(array, Swap, Compare);
@@ -21,7 +20,6 @@ namespace Task43
                 {
                     Console.WriteLine(item);
                 }
-
             }
                 ).Start();
             

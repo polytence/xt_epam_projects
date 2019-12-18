@@ -30,12 +30,14 @@ namespace Task5
                 switch (mode)
                 {
                     case 1:
+                        Backup.Write();
                         Console.WriteLine("Case 1");
                         break;
                     case 2:
                         Console.WriteLine("Case 2");
                         break;
                     case 3:
+                        History.ReadHistory();
                         Console.WriteLine("Case 3");
                         break;
                     case 0:

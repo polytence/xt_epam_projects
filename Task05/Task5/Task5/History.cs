@@ -11,10 +11,14 @@ namespace Task5
     {
         public static void ReadHistory()
         {
+            string Directory1 = $@"C:\Users\{Environment.UserName}\Desktop\";
             string path = $@"C:\Users\{Environment.UserName}\Desktop\logs.txt";
             using (FileStream file = new FileStream(path, FileMode.Open))
             using (StreamReader fileRead = new StreamReader(file))
             {
+                string[] fileEntries = Directory.GetFiles(Directory1);
+                foreach (string fileName in fileEntries)
+                    Console.WriteLine(fileName);
                 var list = new List<string>();
                 Console.WriteLine("Dates:");
                 while (!fileRead.EndOfStream)

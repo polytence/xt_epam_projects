@@ -21,7 +21,11 @@ namespace Task5
                     Console.WriteLine("wrong input");
                     continue;
 
+                } else if (Console.Read() == 'q')
+                {
+                    Console.WriteLine("ok");
                 }
+
                 if (mode > 3 || mode < 0)
                 {
                     Console.WriteLine("Wrong number. Try again.");
@@ -30,15 +34,16 @@ namespace Task5
                 switch (mode)
                 {
                     case 1:
-                        Backup.Write();
+                        //Backup.Write();
                         Console.WriteLine("Case 1");
                         break;
                     case 2:
+                        History.ReadHistory();
                         Console.WriteLine("Case 2");
                         break;
                     case 3:
-                        History.ReadHistory();
                         Console.WriteLine("Case 3");
+                        Spy.SpyChanged();
                         break;
                     case 0:
                         Console.WriteLine("Exit");

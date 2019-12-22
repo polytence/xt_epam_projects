@@ -22,7 +22,7 @@ namespace Task5
             // создаем элементы 
             XmlElement nameTextE = xDoc.CreateElement("Name");
             XmlElement pathTextE = xDoc.CreateElement("Path");
-            XmlElement dateTextE = xDoc.CreateElement("Date");
+            //XmlElement dateTextE = xDoc.CreateElement("Date");
             XmlElement TextE = xDoc.CreateElement("Text");
 
             // создаем текстовые значения для элементов и атрибута
@@ -32,15 +32,15 @@ namespace Task5
             XmlText Text = xDoc.CreateTextNode(text);
 
             //добавляем узлы
-            fileAttr.AppendChild(nameText);
+            fileAttr.AppendChild(dateText);
             nameTextE.AppendChild(nameText);
             pathTextE.AppendChild(pathText);
-            dateTextE.AppendChild(dateText);
+            //dateTextE.AppendChild(dateText);
             TextE.AppendChild(Text);
             file.Attributes.Append(fileAttr);
             file.AppendChild(nameTextE);
             file.AppendChild(pathTextE);
-            file.AppendChild(dateTextE);
+            //file.AppendChild(dateTextE);
             file.AppendChild(TextE);
             xRoot.AppendChild(file);
             xDoc.Save($@"C:\Users\{Environment.UserName}\Desktop\backup\logs.xml");

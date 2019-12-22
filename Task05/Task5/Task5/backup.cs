@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using System.Globalization;
+using System.Threading;
 
 namespace Task5
 {
@@ -14,8 +15,15 @@ namespace Task5
     {
         public static void ReadXml()
         {
+            XDocument UsersData = XDocument.Load($@"C:\Users\{Environment.UserName}\Desktop\backup\logs.xml");
+            XElement root = UsersData.Element("Files");
+            foreach (XElement xe in root.Elements("File").ToList())
+                foreach (XAttribute x in xe.Attributes().ToList())
+                {
+                    Console.WriteLine(x.Value); 
+                }
             var temp = DateTime.Now.ToString(CultureInfo.CurrentCulture);
-            Console.WriteLine("Enter date format: \"{0}\" :", temp);
+            Console.WriteLine("Enter date format: \"{0}\" : to backup", temp);
             var Restoration = Console.ReadLine();
             try
             {
@@ -25,20 +33,35 @@ namespace Task5
             {
                 Console.WriteLine(ex.Message);
             }
-            XDocument UsersData = XDocument.Load($@"C:\Users\{Environment.UserName}\Desktop\backup\logs.xml");
-            XElement root = UsersData.Element("Files");
+            //Spy.SpyChanged();
             foreach (XElement xe in root.Elements("File").ToList())
-                foreach(XAttribute x in xe.Attributes().ToList())
+                foreach (XAttribute x in xe.Attributes().ToList())
                 {
                     if (x.Value == Restoration)
                     {
-                        Console.WriteLine(x.Value + "ok");
-                    }
+                        Console.WriteLine(xe.Element("Text").Value);
+                        //x.Value = "ok";
+                        using (FileStream file = new FileStream(xe.Element("Path").Value, FileMode.OpenOrCreate))
+                        using (StreamWriter fileWrite = new StreamWriter(file))
+                        {
+                            fileWrite.Write(xe.Element("Text").Value);
+                        }
 
-                } 
-               // {
-               //     Console.WriteLine(xe.Attribute("fileName").Value);
-                //}
+                        try
+                        {
+                            File.SetLastWriteTime(xe.Element("Path").Value, DateTime.Parse(x.Value));
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("The process failed: {0}", e.ToString());
+                        }
+                    }
+                }
+
+
+            // {
+            //     Console.WriteLine(xe.Attribute("fileName").Value);
+            //}
 
 
             //foreach (XElement xe in root.Elements("File").ToList())

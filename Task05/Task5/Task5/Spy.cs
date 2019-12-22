@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -59,8 +60,9 @@ namespace Task5
                 string Text1 = "";
                 while (!fileRead.EndOfStream)
                 {
+                    //var line = fileRead.ReadLine();
                     Text1 += fileRead.ReadLine();
-                   // Text.Add(line);
+                    //Text.Add(line);
                     //Console.WriteLine(Text[Text.Count - 1]);
                 }
                 WriteXML.Write(name, fullPath, dataChange, Text1);

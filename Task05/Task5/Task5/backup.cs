@@ -4,50 +4,50 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Threading.Tasks;
-using System.Web.Helpers;
 using System.Xml;
+using System.Xml.Linq;
+using System.Globalization;
 
 namespace Task5
 {
     class Backup
     {
-        public static void Write(object obj)
+        public static void ReadXml()
         {
-            string path = $@"C:\Users\{Environment.UserName}\Desktop\backup\logs.txt";
-            XmlDocument xDoc = new XmlDocument();
-            xDoc.Load($@"C:\Users\{Environment.UserName}\Desktop\backup\logs.xml");
-            XmlElement xRoot = xDoc.DocumentElement;
-            // создаем новый элемент user
-            XmlElement file = xDoc.CreateElement("File");
-            // создаем атрибут fileName
-            XmlAttribute fileName = xDoc.CreateAttribute("fileName");
-            // создаем элементы company и age
-            XmlElement CreatedElem = xDoc.CreateElement("Created");
-            XmlElement ChangedElem = xDoc.CreateElement("Changed");
-            XmlElement DeletedElem = xDoc.CreateElement("Deleted");
-            XmlElement FullPath = xDoc.CreateElement("Path");
+            var temp = DateTime.Now.ToString(CultureInfo.CurrentCulture);
+            Console.WriteLine("Enter date format: \"{0}\" :", temp);
+            var Restoration = Console.ReadLine();
+            try
+            {
+                DateTime.Parse(Restoration).ToString(CultureInfo.CurrentCulture);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            XDocument UsersData = XDocument.Load($@"C:\Users\{Environment.UserName}\Desktop\backup\logs.xml");
+            XElement root = UsersData.Element("Files");
+            foreach (XElement xe in root.Elements("File").ToList())
+                foreach(XAttribute x in xe.Attributes().ToList())
+                {
+                    if (x.Value == Restoration)
+                    {
+                        Console.WriteLine(x.Value + "ok");
+                    }
 
-            // создаем текстовые значения для элементов и атрибута
-            XmlText nameText = xDoc.CreateTextNode("Mark Zuckerberg");
-            XmlText companyText = xDoc.CreateTextNode("Facebook");
-            XmlText ageText = xDoc.CreateTextNode("30");
+                } 
+               // {
+               //     Console.WriteLine(xe.Attribute("fileName").Value);
+                //}
 
-            //добавляем узлы
-            fileName.AppendChild(nameText);
-            CreatedElem.AppendChild(companyText);
-            ageElem.AppendChild(ageText);
-            file.Attributes.Append(fileName);
-            file.AppendChild(companyElem);
-            file.AppendChild(ageElem);
-            xRoot.AppendChild(file);
-            xDoc.Save($@"C:\Users\{Environment.UserName}\Desktop\backup\logs.xml");
 
-            //
-            //using (FileStream file = new FileStream(path, FileMode.Append))
-            //using (StreamWriter filewrite = new StreamWriter(file))
-            //    filewrite.WriteLine(File.GetLastWriteTime(path));
-
-            //Console.WriteLine("worked");
+            //foreach (XElement xe in root.Elements("File").ToList())
+            //{
+            //    if ((xe.Element("Name").Value == "123124214.txt"))
+            //    {
+            //        Console.WriteLine("ok");    
+            //    }
+            //}
         } 
     }
 }

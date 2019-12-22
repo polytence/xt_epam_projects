@@ -27,13 +27,45 @@ namespace Task5
         }
         private static void OnChanged(object source, FileSystemEventArgs e)
         {
-            Console.WriteLine("File:" + e.FullPath + " " + e.ChangeType + " " + NotifyFilters.LastWrite);
+            XmlLog("Renamed",
+                            oldName: "",
+                            e.Name,
+                            e.ChangeType.ToString(),
+                            e.FullPath);
+            Console.WriteLine("File:" + e.FullPath + " " + e.ChangeType + " ");
             //Backup.Write(e.FullPath);
         }
         private static void OnRenamed(object source, RenamedEventArgs e)
         {
-            Console.WriteLine("File: {0} renamed to {1}", e.OldFullPath, e.FullPath);
-            Backup.Write(e.Name);
+            XmlLog("Renamed",
+                            e.OldName,
+                            e.Name,
+                            e.ChangeType.ToString(),
+                            e.FullPath);
+
+            Console.WriteLine(e.ChangeType);
+        }
+        public static void XmlLog(string eventName,
+                                           string oldName,
+                                           string name,
+                                           string changeType,
+                                           string fullPath)
+        {
+            using (FileStream file = new FileStream(fullPath, FileMode.Open))
+            using (StreamReader fileRead = new StreamReader(file))
+            {
+                var dataChange = (File.GetLastWriteTime(fullPath)); //не нашел как через watcher взять время. 
+                //var Text = new List<string>();
+                string Text1 = "";
+                while (!fileRead.EndOfStream)
+                {
+                    Text1 += fileRead.ReadLine();
+                   // Text.Add(line);
+                    //Console.WriteLine(Text[Text.Count - 1]);
+                }
+                WriteXML.Write(name, fullPath, dataChange, Text1);
+            }
+
         }
 
     }

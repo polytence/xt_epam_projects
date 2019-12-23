@@ -56,7 +56,7 @@ namespace Task5
             using (StreamReader fileRead = new StreamReader(file))
             {
                 var dataChange = (File.GetLastWriteTime(fullPath)); //не нашел как через watcher взять время. 
-                //var Text = new List<string>();
+                //var Text = new List<string>(); //пока не нашел как нормально записать лист в XML сделал строкой
                 string Text1 = "";
                 while (!fileRead.EndOfStream)
                 {

@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace Task5
 {
-    class Program
+    class Program // сделал мониторинг, запись в xml и бакап файла по времени создания(если такой есть в xml). Получился один большой говнокод
     {
         static void Main(string[] args)
         {
 
             while (true)
             {
-                Console.WriteLine("Hello,{0}", Environment.UserName + "! Choose mode:" + Environment.NewLine + "1. Read" + Environment.NewLine +
-                 "2. Backup" + Environment.NewLine + "3. Clear" + Environment.NewLine + "0. Exit");
+                Console.WriteLine("Hello,{0}", Environment.UserName + "! Choose mode:" + Environment.NewLine + "1. BackUp" + Environment.NewLine +
+                 "2. Monitoring changes"// + Environment.NewLine + "3. not use" + Environment.NewLine + "0. Exit"
+                 );
 
                 if (!int.TryParse(Console.ReadLine(), out int mode))
                 {
@@ -34,12 +35,12 @@ namespace Task5
                         Console.WriteLine("Case 1");
                         break;
                     case 2:
-                        History.ReadHistory();
+                        Spy.SpyChanged();
+                        //History.ReadHistory();
                         Console.WriteLine("Case 2");
                         break;
                     case 3:
                         Console.WriteLine("Case 3");
-                        Spy.SpyChanged();
                         break;
                     case 0:
                         Console.WriteLine("Exit");

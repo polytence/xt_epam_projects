@@ -15,6 +15,7 @@ namespace Task5
     {
         public static void ReadXml()
         {
+            Console.WriteLine("Chose dato for Restoration:");
             XDocument UsersData = XDocument.Load($@"C:\Users\{Environment.UserName}\Desktop\backup\logs.xml");
             XElement root = UsersData.Element("Files");
             foreach (XElement xe in root.Elements("File").ToList())
@@ -50,6 +51,7 @@ namespace Task5
                         {
                             var text = xe.Element("Text").Value;
                             File.WriteAllText(xe.Element("Path").Value, text.ToString());
+                            
                         }
                         catch (Exception e)
                         {
@@ -65,22 +67,9 @@ namespace Task5
                         {
                             Console.WriteLine("The process failed: {0}", e.ToString());
                         }
+                        Console.WriteLine("Ready");
                     }
                 }
-
-
-            // {
-            //     Console.WriteLine(xe.Attribute("fileName").Value);
-            //}
-
-
-            //foreach (XElement xe in root.Elements("File").ToList())
-            //{
-            //    if ((xe.Element("Name").Value == "123124214.txt"))
-            //    {
-            //        Console.WriteLine("ok");    
-            //    }
-            //}
         } 
     }
 }

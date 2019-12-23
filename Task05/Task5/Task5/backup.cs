@@ -39,13 +39,23 @@ namespace Task5
                 {
                     if (x.Value == Restoration)
                     {
-                        Console.WriteLine(xe.Element("Text").Value);
+                        //Console.WriteLine(xe.Element("Text").Value);
                         //x.Value = "ok";
-                        using (FileStream file = new FileStream(xe.Element("Path").Value, FileMode.OpenOrCreate))
-                        using (StreamWriter fileWrite = new StreamWriter(file))
+                        //using (FileStream file = new FileStream(xe.Element("Path").Value, FileMode.OpenOrCreate))
+                        //using (StreamWriter fileWrite = new StreamWriter(file))
+                        //{
+                        //    fileWrite.Write(xe.Element("Text").Value);
+                        //}
+                        try
                         {
-                            fileWrite.Write(xe.Element("Text").Value);
+                            var text = xe.Element("Text").Value;
+                            File.WriteAllText(xe.Element("Path").Value, text.ToString());
                         }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("The process failed: {0}", e.ToString());
+                        }
+
 
                         try
                         {

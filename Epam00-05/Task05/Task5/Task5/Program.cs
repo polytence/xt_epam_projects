@@ -36,7 +36,6 @@ namespace Task5
                         break;
                     case 2:
                         Spy.SpyChanged();
-                        //History.ReadHistory();
                         Console.WriteLine("Case 2");
                         break;
                     case 3:

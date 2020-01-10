@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DALAwardFile.cs" />
+    <Compile Include="DALAwardMemory.cs" />
     <Compile Include="DALTextFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DALMemory.cs" />

@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace Epam._06.DAL
 {
-    public class DALTextFile : IUserDao
+    public class DALTextFile : IUserDAO
     {
         private readonly string path = @".users.json";
         private readonly IDictionary<int, User> _users;
@@ -36,13 +36,9 @@ namespace Epam._06.DAL
         public User Add(User user)
         {
             var lastId = _users.Keys.Count > 0 ? _users.Keys.Max() : 0;
-
             user.Id = lastId + 1;
-
             _users.Add(user.Id, user);
-
             WriteUsers();
-
             return user;
         }
 
@@ -74,8 +70,28 @@ namespace Epam._06.DAL
                 streamWriter.Write(JsonConvert.SerializeObject(_users));
             }
             File.SetAttributes(path, FileAttributes.Hidden);
-            Console.WriteLine("File saved");
+            Console.WriteLine(_users);
+        }
+        public bool AddAward(int id, int awardId)
+        {
+            bool giveResult = _users[id].AddAward(awardId);
+            WriteUsers();
+            return giveResult;
+        }
+        public bool RemoveAward(int id, int awardId)
+        {
+            bool takeResult = _users[id].RemoveAward(awardId);
+            WriteUsers();
+            return takeResult;
         }
 
+        public void RemoveInUsers(int awardId)
+        {
+            foreach (var user in _users)
+            {
+                user.Value.RemoveAward(awardId);
+            }
+            WriteUsers();
+        }
     }
 }

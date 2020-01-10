@@ -13,9 +13,12 @@ namespace Settings
 {
     public class SetConfig
     {
-        public static IUserDao UserDao { get; private set; }
+        public static IUserDAO UserDao { get; private set; }
 
         public static IUserLogic UserLogic { get; private set; }
+        public static IAwardDAO AwardDao { get; set; }
+
+        public static IAwardLogic AwardLogic { get; set; }
 
         static SetConfig()
         {
@@ -23,13 +26,16 @@ namespace Settings
             if (DALConf == "File")
             {
                 UserDao = new DALTextFile();
+                AwardDao = new DALAwardFile();
             }
             else
             {
                 UserDao = new DALMemory();
+                AwardDao = new DALAwardMemory();
             }
 
             UserLogic = new UserLogic(UserDao);
+            AwardLogic = new AwardLogic(AwardDao);
 
         }
 

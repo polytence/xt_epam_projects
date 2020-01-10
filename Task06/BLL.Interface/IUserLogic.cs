@@ -17,5 +17,10 @@ namespace BLL.Interface
         IEnumerable<User> GetAll();
 
         bool RemoveById(int id);
+        bool AddAward(int id, int awardId);
+
+        bool RemoveAward(int id, int awardId);
+
+        void RemoveInUsers(int awardId);
     }
 }

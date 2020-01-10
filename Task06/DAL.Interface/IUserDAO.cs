@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Interface
 {
-    public interface IUserDao
+    public interface IUserDAO
     {
         User Add(User user);
 
@@ -16,5 +16,11 @@ namespace DAL.Interface
         IEnumerable<User> GetAll();
 
         bool RemoveById(int id);
+
+        bool AddAward(int id, int awardId);
+
+        bool RemoveAward(int id, int awardId);
+
+        void RemoveInUsers(int awardId);
     }
 }

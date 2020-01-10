@@ -11,9 +11,9 @@ namespace Epam._06.BLL
 {
     public class UserLogic : IUserLogic
     {
-        private IUserDao _userDao;
+        private IUserDAO _userDao;
 
-        public UserLogic(IUserDao userDao)
+        public UserLogic(IUserDAO userDao)
         {
             _userDao = userDao;
         }
@@ -37,6 +37,18 @@ namespace Epam._06.BLL
         {
             return _userDao.RemoveById(id);
         }
-        
+        public bool AddAward(int id, int awardId)
+        {
+            return _userDao.AddAward(id, awardId);
+        }
+
+        public bool RemoveAward(int id, int awardId)
+        {
+            return _userDao.RemoveAward(id, awardId);
+        }
+
+        public void RemoveInUsers(int awardId)
+        {
+        }
     }
 }

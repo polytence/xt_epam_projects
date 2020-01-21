@@ -1,0 +1,72 @@
+<style>
+label{
+  margin-right:-9px;
+  position:relative;
+  display:inline-block;
+  height:30px;
+  width:100px;
+  text-align:center;
+  line-height:30px;
+  overflow:hidden;
+}
+input{
+  display:none;
+}
+.top, .bottom{
+  position:absolute;
+  top:0;
+  left:5px;
+  height:15px;
+  width:90px;
+  transform:skewX(20deg);
+  background:linear-gradient(to bottom, #ccc 40%, #aaa 100%);
+  z-index:-1;
+}
+.bottom{
+  top:50%;
+  transform:skewX(-20deg);
+  background:linear-gradient(to bottom, #aaa 0%, #ccc 60%);
+}
+input:checked+span+div{
+  background:linear-gradient(to bottom, rgb(106,211,80) 40%, rgb(72,181,45) 100%);
+}
+input:checked+span+div+div{
+  background:linear-gradient(to bottom, rgb(72,181,45) 0%, rgb(106,211,80) 60%);
+}
+label:first-child div{
+  left:-5px;
+  width:100px;
+}
+label:last-child div{
+  width:100px;
+}
+input:checked+span{
+  color:#fff;
+}
+</style>
+
+
+<label>
+ <input type="radio" name="choise">
+ <span>Шаг 1</span>
+ <div class="top"></div>
+ <div class="bottom"></div>
+</label>
+<label>
+ <input type="radio" name="choise" checked>
+ <span>Шаг 2</span>
+ <div class="top"></div>
+ <div class="bottom"></div>
+</label>
+<label>
+ <input type="radio" name="choise">
+ <span>Шаг 3</span>
+ <div class="top"></div>
+ <div class="bottom"></div>
+</label>
+<label>
+ <input type="radio" name="choise">
+ <span>Шаг 4</span>
+ <div class="top"></div>
+ <div class="bottom"></div>
+</label>

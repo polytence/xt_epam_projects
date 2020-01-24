@@ -1,6 +1,125 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <style>
+body {
+			background-color: #edeef0;
+		}
+.header {
+	padding: 1px;
+	margin: -8px ;
+	width: 100%;
+	background: url(vk.png);
+	background-position: 20% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-color: #4a76a8; 
+	height: 45px;
+}
+form {
+	position: relative;
+	width: 300px;
+	margin: 0 auto;
+}
+input {
+	border: 0;
+    margin: 7px 0;
+    height: 28px;
+    line-height: 16px;
+    width: 230px;
+    border-radius: 14px;
+    background: #224b7a;
+    padding-left: 19px;
+    border-left: 8px solid transparent;
+    background-position: left 8px;
+}
+form:before {
+	position: absolute;
+	content: "\f002";
+	font-family: FontAwesome;
+	top: 13px;
+	left: 6px;
+	font-size: 14px;
+	color: #7391b2;
+}
+input::-webkit-input-placeholder {
+	color: #7391b2; 
+}
+input:focus {
+    background: white;
+    }
+  
+ul.icon
+{
+    list-style-type: none;
+}
+	
+ul.icon li:before
+{
+    font-family: FontAwesome;
+    float: left;
+    width: 1.4em;
+}
+ul.icon li.info:before { content: "\f1fa"; }
+ul.icon li.help:before { content: "\f002"; }
+
+.menu {
+	position: absolute;
+	width: 20%;
+	margin: 10px;
+} 
+a:visited {
+   color: #2a5675; 
+   }
+a:link {
+	text-decoration: none
+    color: #2a5675; 
+    padding: 2px; 
+   }
+li:hover {
+    background: #576d7d;    
+}
+.settings {
+
+	margin-left: 25%;
+	width: 50%;
+	background: white;
+	border: 1px solid #a3a3a3 ;
+	margin-top: 20px;
+	padding: -5px;
+}
+p {
+margin: 15px;
+
+}
+.hr1 {
+  margin: 5px;
+}
+
+
+
+
+
+
+
 
 </style>
+<div class = "header">
+<form>
+  <input type="text" placeholder="Поиск">
+</form></div>
+
+<div class="menu">
+<ul class="icon">
+<li class="info"><a href="#">Пункт меню</a></li>
+<li class="help"><a href="#">Пункт меню</a></li>
+</ul>
+</div>
+
+<div class="settings">
+<p style ="text-size: 10pt;
+font-weight: bold;"> Общее </p>
+<hr>
+<hr class = "hr1">
+</div>
 
 
 

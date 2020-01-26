@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <style>
 body {
+		font-family: tahoma;
 			background-color: #edeef0;
 		}
 .header {
@@ -70,6 +71,8 @@ ul.icon li.help:before { content: "\f002"; }
 	top: 50px;
 	position: absolute;
 	width: 13%;
+	font-size: 14px;
+	
 } 
 a:visited {
    color: #2a5675; 
@@ -87,14 +90,25 @@ li:hover {
 	width: 40%;
 	min-width: 400px;
 	background: white;
-	border: 1px solid #a3a3a3 ;
+	border: 1px solid #dbdbdb ;
 }
 p {
 margin: 15px;
 
 }
+ hr {
+    border: none; 
+    color: #dbdbdb; 
+    background-color: #dbdbdb; 
+    height: 1px; 
+   }
+
 .hr1 {
-  margin: 5px;
+	margin: 5px;
+	border: none; 
+    color: #dbdbdb; 
+    background-color: #dbdbdb; 
+    height: 1px;
 }
 
 .settings-menu{
@@ -102,12 +116,15 @@ margin: 15px;
 	position: fixed;
 	margin: 20px;
 	right: 30px;
+	background: white;
+	border: 1px solid #dbdbdb ;
+	padding-top: 5px;
+	border-radius: 10px;
 }
 ul.set-menu {
 	margin-left: 25%;
 	margin: 0;
 	padding: 0;
-	background-color: #3d3e40;
 	width: 200px;
 }
 
@@ -116,14 +133,11 @@ ul.set-menu li {
 }
 
 ul.set-menu li a {
-	padding: 10px 12px 12px;
-	color: white;
+	padding: 10px 10px 10px;
+	color: #2a7db8;
 	font-size: 13px;
-	font-weight: bold;
-	font-family: Arial;
 	text-decoration: none;
 	display: block;
-	border-top: 1px solid #c4c4c4;
 }
 
 ul.set-menu li a:hover {
@@ -132,8 +146,10 @@ ul.set-menu li a:hover {
 ul.set-menu li a:focus {
 	border-left: 3px solid #4a76a8;
 	background-color: #dfe5eb;
+	color: black;
 }
-
+.settings-item a{
+}
 
 </style>
 <div class = "header">
@@ -149,20 +165,20 @@ ul.set-menu li a:focus {
 </div>
 
 <div class="settings">
-<p style ="text-size: 10pt;
-font-weight: bold;"> Общее </p>
+<p style ="text-size: 10pt;"> Общее </p>
 <hr>
+<span class= "settings-item"> Общее<a href="#">Пункт меню</a></span>
 <hr class = "hr1">
 </div>
 
 <div class="settings-menu">
 <ul class="set-menu">
-			<li><a href="#0">HTML</a></li>
-			<li><a href="#0">CSS</a>
-			<li><a href="#0">PHP</a></li>
-			<li><a href="#0">JAVASCRIPT</a></li>
-			<li><a href="#0">PERL</a></li>
-			<li><a href="#0">JAVA</a></li>
+			<li><a href="#0">Пункт меню</a></li>
+			<li><a href="#0">Пункт меню</a>
+			<li><a href="#0">Пункт меню</a></li>
+			<li><a href="#0">Пункт меню</a></li>
+			<li><a href="#0">Пункт меню</a></li>
+			<li><a href="#0">Пункт меню</a></li>
 		</ul>
 		</div>
 

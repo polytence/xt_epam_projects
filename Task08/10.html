@@ -4,18 +4,20 @@ body {
 			background-color: #edeef0;
 		}
 .header {
+	position: fixed;
 	padding: 1px;
 	margin: -8px ;
 	width: 100%;
 	background: url(vk.png);
-	background-position: 20% 50%;
+	background-position: 15% 50%;
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-color: #4a76a8; 
-	height: 45px;
+	height: 40px;
 }
 form {
-	position: relative;
+	left: 31%;
+	position: absolute;
 	width: 300px;
 	margin: 0 auto;
 }
@@ -45,11 +47,13 @@ input::-webkit-input-placeholder {
 }
 input:focus {
     background: white;
+	outline: none;
     }
   
 ul.icon
 {
     list-style-type: none;
+	padding-inline-start: 0px;
 }
 	
 ul.icon li:before
@@ -62,29 +66,28 @@ ul.icon li.info:before { content: "\f1fa"; }
 ul.icon li.help:before { content: "\f002"; }
 
 .menu {
+	margin-left: 15%;
+	top: 50px;
 	position: absolute;
-	width: 20%;
-	margin: 10px;
+	width: 13%;
 } 
 a:visited {
    color: #2a5675; 
    }
-a:link {
-	text-decoration: none
-    color: #2a5675; 
-    padding: 2px; 
+a {
+	text-decoration: none;
    }
 li:hover {
-    background: #576d7d;    
+    background: #dfe5eb;    
 }
 .settings {
-
-	margin-left: 25%;
-	width: 50%;
+	top: 55px;
+	position: absolute;
+	margin-left: 30%;
+	width: 40%;
+	min-width: 400px;
 	background: white;
 	border: 1px solid #a3a3a3 ;
-	margin-top: 20px;
-	padding: -5px;
 }
 p {
 margin: 15px;
@@ -94,11 +97,42 @@ margin: 15px;
   margin: 5px;
 }
 
+.settings-menu{
+	top: 35px;
+	position: fixed;
+	margin: 20px;
+	right: 30px;
+}
+ul.set-menu {
+	margin-left: 25%;
+	margin: 0;
+	padding: 0;
+	background-color: #3d3e40;
+	width: 200px;
+}
 
+ul.set-menu li {
+	list-style: none;
+}
 
+ul.set-menu li a {
+	padding: 10px 12px 12px;
+	color: white;
+	font-size: 13px;
+	font-weight: bold;
+	font-family: Arial;
+	text-decoration: none;
+	display: block;
+	border-top: 1px solid #c4c4c4;
+}
 
-
-
+ul.set-menu li a:hover {
+	background-color: #dfe5eb;
+}
+ul.set-menu li a:focus {
+	border-left: 3px solid #4a76a8;
+	background-color: #dfe5eb;
+}
 
 
 </style>
@@ -121,5 +155,15 @@ font-weight: bold;"> Общее </p>
 <hr class = "hr1">
 </div>
 
+<div class="settings-menu">
+<ul class="set-menu">
+			<li><a href="#0">HTML</a></li>
+			<li><a href="#0">CSS</a>
+			<li><a href="#0">PHP</a></li>
+			<li><a href="#0">JAVASCRIPT</a></li>
+			<li><a href="#0">PERL</a></li>
+			<li><a href="#0">JAVA</a></li>
+		</ul>
+		</div>
 
 
